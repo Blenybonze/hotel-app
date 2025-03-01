@@ -3,23 +3,45 @@
     <div>
         <label>{{'new-reservation.checkin-date'}}</label>
         <input type="date" formControlName="checkInDate">
+        <div
+            *ngIf="reservationForm.get('checkInDate')?.invalid && reservationForm.get('checkInDate')?.touched">
+            checkin date is required
+        </div>
     </div>
     <div>
-        <label>{{'new-reservation.checkout-date'}}</label>
+        <label>{{'new-reservation.checkout-date' }}</label>
         <input type="date" formControlName="checkOutDate">
+        <div
+            *ngIf="reservationForm.get('checkOutDate')?.invalid && reservationForm.get('checkOutDate')?.touched">
+            checkin date is required
+        </div>
+
     </div>
     <div>
         <label>{{'new-reservation.guest-name' }}</label>
         <input type="text" formControlName="guestName">
+        <div
+            *ngIf="reservationForm.get('guestName')?.invalid && reservationForm.get('guestName')?.touched">
+            checkin date is required
+        </div>
     </div>
     <div>
         <label>{{'new-reservation.guest-email'}}</label>
         <input type="email" formControlName="guestEmail">
+        <div
+            *ngIf="reservationForm.get('guestEmail')?.invalid && reservationForm.get('guestEmail')?.touched">
+            checkin date is required
+        </div>
     </div>
     <div>
         <label>{{'new-reservation.room-number'}}</label>
         <input type="number" formControlName="roomNumber">
+        <div
+            *ngIf="reservationForm.get('roomNumber')?.invalid && reservationForm.get('roomNumber')?.touched">
+            checkin date is required
+        </div>
     </div>
 
-    <button type="submit">{{'new-reservation.submit'}}</button>
+    <button [disabled]="reservationForm.invalid"
+        type="submit">{{'new-reservation.submit'}}</button>
 </form>
