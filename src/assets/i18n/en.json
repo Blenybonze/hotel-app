@@ -1,3 +1,31 @@
 {
-    
+    "language": {
+        "en-us": "English US",
+        "pt-br": "Portuguese BR"
+    },
+    "navbar": {
+        "reservation-app": "Reservation App"
+    },
+    "new-reservation": {
+        "welcome": "Welcome to the Hotel Reservation Portal!",
+        "create-new-reservation": "Create a new reservation",
+        "view-all": "See all reservations",
+        "checkin-date": "Check-in date",
+        "checkin-date-required": "Check-in date is required",
+        "checkout-date": "Check-out date",
+        "checkout-date-required": "Check-out date is required",
+        "guest-name": "Name",
+        "guest-name-required": "Name is required",
+        "guest-email": "E-mail",
+        "guest-email-required": "E-mail is required",
+        "room-number": "Room number",
+        "room-number-required": "Room number is required",
+        "submit": "Create",
+        "list": "Reservation List",
+        "actions": "Actions",
+        "no-reservations-available": "No reservations available",
+        "edit": "Edit",
+        "delete": "Delete",
+        "update": "Update"
+    }
 }

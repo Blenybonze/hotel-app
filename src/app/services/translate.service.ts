@@ -19,4 +19,8 @@ export class TranslationService {
     this.translate.use(language);
     localStorage.setItem('language', language); // Save language preference
   }
+
+  languageSelected(): string {
+    return this.translate.currentLang;
+  }
 }

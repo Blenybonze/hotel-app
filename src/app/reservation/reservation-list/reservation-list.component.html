@@ -1,45 +1,51 @@
 <app-home></app-home>
-<h3 class="mt-5 mb-3">{{'reservation.list'}}</h3>
+<div class="container">
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>{{'reservation.guest-name'}}</th>
-            <th>{{'reservation.guest-email'}}</th>
-            <th>{{'reservation.guest-room-number'}}</th>
-            <th>{{'reservation.guest-checkin-date'}}</th>
-            <th>{{'reservation.guest-checkout-date'}}</th>
-            <th>{{'reservation.actions'}}</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let reservation of reservations">
-            <td>{{reservation.guestName}}</td>
-            <td>{{reservation.guestEmail}}</td>
-            <td>{{reservation.roomNumber}}</td>
-            <td>{{reservation.checkInDate}}</td>
-            <td>{{reservation.checkOutDate}}</td>
-            <td>
-                <button class="btn btn-danger mx-1"
-                    (click)="deleteReservation(reservation.id)">{{'reservation.delete'}}
-                </button>
-                <button class="btn btn-secondary mx-1"
-                    [routerLink]="['/edit',reservation.id]"
-                    routerLinkActive="router-link-active">{{'reservation.edit'}}
-                </button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+    <h3 class="mt-5 mb-3">{{'new-reservation.list'|translate}}</h3>
 
-<ul *ngIf="reservations.length; else noReservations">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{{'new-reservation.guest-name'|translate}}</th>
+                <th>{{'new-reservation.guest-email'|translate}}</th>
+                <th>{{'new-reservation.room-number'|translate}}</th>
+                <th>{{'new-reservation.checkin-date'|translate}}</th>
+                <th>{{'new-reservation.checkout-date'|translate}}</th>
+                <th>{{'new-reservation.actions'|translate}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let reservation of reservations">
+                <td>{{reservation.guestName}}</td>
+                <td>{{reservation.guestEmail}}</td>
+                <td>{{reservation.roomNumber}}</td>
+                <td>{{reservation.checkInDate}}</td>
+                <td>{{reservation.checkOutDate}}</td>
+                <td>
+                    <button class="btn btn-sm btn-danger mx-1"
+                        (click)="deleteReservation(reservation.id)">{{'new-reservation.delete'
+                        | translate}}
+                    </button>
+                    <button class="btn btn-sm btn-secondary mx-1"
+                        [routerLink]="['/edit',reservation.id]"
+                        routerLinkActive="router-link-active">{{'new-reservation.edit'
+                        | translate}}
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
-</ul>
+    <ul *ngIf="reservations.length; else noReservations">
 
-<ng-template #noReservations>
-    <p>{{'reservation.no-reservations-available'}}</p>
-    <button class="btn btn-primary" (click)="goToCreate()">
-        {{'reservation.create-a-new-one'}}
-    </button>
+    </ul>
 
-</ng-template>
+    <ng-template #noReservations>
+        <p>{{'new-reservation.no-reservations-available' |
+            translate}}</p>
+        <button class="btn btn-primary" (click)="goToCreate()">
+            {{'new-reservation.create-new-reservation' | translate}}
+        </button>
+
+    </ng-template>
+</div>

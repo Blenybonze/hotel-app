@@ -1,11 +1,33 @@
 {
+    "language": {
+        "en-us": "Inglês US",
+        "pt-br": "Português BR"
+    },
+    "navbar": {
+        "reservation-app": "Reservation App"
+    },
     "new-reservation": {
+        "welcome": "Bem vindo(a) ao Portal de Reservas de Hotéis",
+        "create-new-reservation": "Criar nova reserva",
+        "view-all": "Ver todas as reservas",
         "checkin-date": "Data de chegada",
+        "checkin-date-required": "Data de chegada é obrigatória",
         "checkout-date": "Data de saída",
+        "checkout-date-required": "Data de saída é obrigatória",
         "guest-name": "Nome",
+        "guest-name-required": "Nome é obrigatório",
         "guest-email": "E-mail",
+        "guest-email-required": "E-mail é obrigatório",
         "room-number": "Número do quarto",
+        "room-number-required": "Número do quarto é obrigatório",
         "submit": "Criar",
-        "list": "Reservation List"
+        "list": "Lista de reservas",
+        "actions": "Ações",
+        "no-reservations-available": "Sem reservas registradas",
+        "edit": "Editar",
+        "delete": "Deletar",
+        "update": "Atualizar"
+        
+        
     }
 }

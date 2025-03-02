@@ -1,73 +1,77 @@
 <app-home></app-home>
 
-<h2 class="my-5 mb-3">
-    Create a new reservation
-</h2>
+<div class="container">
+    <h2 class="my-5 mb-3">
+        {{'new-reservation.create-new-reservation' | translate}}
+    </h2>
 
-<form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
 
-    <div class="row mb-2">
-        <div class="col">
-            <label
-                class="form-label">{{'new-reservation.checkin-date'}}</label>
-            <input class="form-control" type="date"
-                formControlName="checkInDate">
-            <small class="text-danger"
-                *ngIf="reservationForm.get('checkInDate')?.invalid && reservationForm.get('checkInDate')?.touched">
-                {{'new-reservation.checkin-date-required'}}
-            </small>
+        <div class="row mb-2">
+            <div class="col">
+                <label
+                    class="form-label">{{'new-reservation.checkin-date'|translate}}</label>
+                <input class="form-control" type="date"
+                    formControlName="checkInDate">
+                <small class="text-danger"
+                    *ngIf="reservationForm.get('checkInDate')?.invalid && reservationForm.get('checkInDate')?.touched">
+                    {{'new-reservation.checkin-date-required'|translate}}
+                </small>
+            </div>
+            <div class="col">
+                <label
+                    class="form-label">{{'new-reservation.checkout-date'
+                    |translate}}</label>
+                <input class="form-control" type="date"
+                    formControlName="checkOutDate">
+                <small class="text-danger"
+                    *ngIf="reservationForm.get('checkOutDate')?.invalid && reservationForm.get('checkOutDate')?.touched">
+                    {{'new-reservation.checkout-date-required'|translate}}
+                </small>
+            </div>
         </div>
-        <div class="col">
-            <label
-                class="form-label">{{'new-reservation.checkout-date'
-                }}</label>
-            <input class="form-control" type="date"
-                formControlName="checkOutDate">
-            <small class="text-danger"
-                *ngIf="reservationForm.get('checkOutDate')?.invalid && reservationForm.get('checkOutDate')?.touched">
-                {{'new-reservation.checkout-date-required'}}
-            </small>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col">
-            <label class="form-label">{{'new-reservation.guest-name'
-                }}</label>
-            <input class="form-control" type="text"
-                formControlName="guestName">
-            <small class="text-danger"
-                *ngIf="reservationForm.get('guestName')?.invalid && reservationForm.get('guestName')?.touched">
-                {{'new-reservation.guest-name-required'}}
-            </small>
+        <div class="row">
+            <div class="col">
+                <label
+                    class="form-label">{{'new-reservation.guest-name'
+                    |translate}}</label>
+                <input class="form-control" type="text"
+                    formControlName="guestName">
+                <small class="text-danger"
+                    *ngIf="reservationForm.get('guestName')?.invalid && reservationForm.get('guestName')?.touched">
+                    {{'new-reservation.guest-name-required'|translate}}
+                </small>
+            </div>
+            <div class="col">
+                <label
+                    class="form-label">{{'new-reservation.guest-email'|translate}}</label>
+                <input class="form-control" type="email"
+                    formControlName="guestEmail">
+                <small class="text-danger"
+                    *ngIf="reservationForm.get('guestEmail')?.invalid && reservationForm.get('guestEmail')?.touched">
+                    {{'new-reservation.guest-email-required'|translate}}
+                </small>
+            </div>
         </div>
-        <div class="col">
-            <label
-                class="form-label">{{'new-reservation.guest-email'}}</label>
-            <input class="form-control" type="email"
-                formControlName="guestEmail">
-            <small class="text-danger"
-                *ngIf="reservationForm.get('guestEmail')?.invalid && reservationForm.get('guestEmail')?.touched">
-                {{'new-reservation.guest-email-required'}}
-            </small>
-        </div>
-    </div>
 
-    <div class="row mb-3">
-        <div class="col-3">
-            <label
-                class="form-label">{{'new-reservation.room-number'}}</label>
-            <input class="form-control" type="number"
-                formControlName="roomNumber">
-            <small class="text-danger"
-                *ngIf="reservationForm.get('roomNumber')?.invalid && reservationForm.get('roomNumber')?.touched">
-                {{'new-reservation.room-number-required'}}
-            </small>
+        <div class="row mb-3">
+            <div class="col-3">
+                <label
+                    class="form-label">{{'new-reservation.room-number'|translate}}</label>
+                <input class="form-control" type="number"
+                    formControlName="roomNumber">
+                <small class="text-danger"
+                    *ngIf="reservationForm.get('roomNumber')?.invalid && reservationForm.get('roomNumber')?.touched">
+                    {{'new-reservation.room-number-required'|translate}}
+                </small>
+            </div>
         </div>
-    </div>
 
-    <button class="btn btn-primary"
-        [disabled]="reservationForm.invalid"
-        type="submit">{{'new-reservation.submit'}}
-    </button>
-</form>
+        <button class="btn btn-primary"
+            [disabled]="reservationForm.invalid"
+            type="submit">{{this.activatedRoute.snapshot.paramMap.get('id')
+            ?('new-reservation.update'|translate):('new-reservation.submit'|translate)}}
+        </button>
+    </form>
+</div>

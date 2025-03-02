@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ReservationService } from '../reservation.service';
-import { Reservation } from 'src/app/models/reservation';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -17,7 +16,7 @@ export class ReservationFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private reservationService: ReservationService,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
+    public activatedRoute: ActivatedRoute,
   ) {
 
   }

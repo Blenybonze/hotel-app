@@ -5,6 +5,7 @@ import { ReservationListComponent } from './reservation-list/reservation-list.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { HomeModule } from '../home/home.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -18,7 +19,8 @@ import { HomeModule } from '../home/home.module';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    HomeModule
+    HomeModule,
+    SharedModule
   ]
 })
 export class ReservationModule { }
