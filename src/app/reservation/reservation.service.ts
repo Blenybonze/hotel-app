@@ -6,7 +6,10 @@ import { Reservation } from '../models/reservation';
 })
 export class ReservationService {
 
-  constructor() { }
+  constructor() {
+    let savedReservations = localStorage.getItem('reservations');
+    this.reservations = savedReservations ? JSON.parse(savedReservations) : []
+  }
 
   private reservations: Reservation[] = []
 
@@ -19,18 +22,21 @@ export class ReservationService {
   }
 
   addReservation(reservation: Reservation): void {
+    reservation.id = Date.now().toString();
     this.reservations.push(reservation);
+
+    localStorage.setItem('reservations', JSON.stringify(this.reservations))
   }
 
   deleteReservation(id: string) {
-    let index = this.findIndex(id)
-    this.reservations.splice(index, 1);
+    this.reservations.splice(this.findIndex(id), 1);
+    localStorage.setItem('reservations', JSON.stringify(this.reservations))
   }
 
-  updateReservation(updateReservation: Reservation) {
-    let index = this.findIndex(updateReservation.id);
-
-    this.reservations[index] = updateReservation;
+  updateReservation(id: string, updateReservation: Reservation) {
+    updateReservation.id = id;
+    this.reservations[this.findIndex(id)] = updateReservation;
+    localStorage.setItem('reservations', JSON.stringify(this.reservations))
   }
 
   findIndex(id: string) {

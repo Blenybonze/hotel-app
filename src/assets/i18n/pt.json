@@ -1,11 +1,11 @@
-
 {
-    "new-reservation":{
-        "checkin-date":"Data de chegada",
-        "checkout-date":"Data de saída",
-        "guest-name":"Nome",
-        "guest-email":"E-mail",
-        "room-number":"Número do quarto",
-        "submit":"Criar"
+    "new-reservation": {
+        "checkin-date": "Data de chegada",
+        "checkout-date": "Data de saída",
+        "guest-name": "Nome",
+        "guest-email": "E-mail",
+        "room-number": "Número do quarto",
+        "submit": "Criar",
+        "list": "Reservation List"
     }
 }
