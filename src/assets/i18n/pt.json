@@ -26,7 +26,8 @@
         "no-reservations-available": "Sem reservas registradas",
         "edit": "Editar",
         "delete": "Deletar",
-        "update": "Atualizar"
+        "update": "Atualizar",
+        "filter": "Filtro"
         
         
     }

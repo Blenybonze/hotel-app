@@ -26,6 +26,7 @@
         "no-reservations-available": "No reservations available",
         "edit": "Edit",
         "delete": "Delete",
-        "update": "Update"
+        "update": "Update",
+        "filter": "Filter"
     }
 }

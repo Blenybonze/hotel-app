@@ -3,6 +3,26 @@
 
     <h3 class="mt-5 mb-3">{{'new-reservation.list'|translate}}</h3>
 
+    <div class="row mb-3">
+        <div class="col-3">
+            <label
+                class="form-label">{{'new-reservation.guest-name'|translate}}</label>
+            <input class="form-control" type="text"
+                [(ngModel)]="guestNameFilter"
+                (ngModelChange)="applyFilter()"
+                placeholder="{{'new-reservation.filter'|translate}}">
+
+        </div>
+        <div class="col-3">
+            <label
+                class="form-label">{{'new-reservation.room-number'|translate}}</label>
+            <input class="form-control" type="text"
+                [(ngModel)]="roomNumberFilter"
+                (ngModelChange)="applyFilter()"
+                placeholder="{{'new-reservation.filter'|translate}}">
+        </div>
+    </div>
+
     <table class="table table-striped">
         <thead>
             <tr>
@@ -15,7 +35,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let reservation of reservations">
+            <tr *ngFor="let reservation of filterReservations">
                 <td>{{reservation.guestName}}</td>
                 <td>{{reservation.guestEmail}}</td>
                 <td>{{reservation.roomNumber}}</td>
