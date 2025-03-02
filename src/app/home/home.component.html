@@ -1,11 +1,11 @@
 <app-navbar></app-navbar>
-<div class="text-center my-5">
+<div class="text-center my-5 col">
     <h2 class="mb-4">{{'new-reservation.welcome'|translate}}</h2>
-    <button class="btn btn-primary mx-2"
+    <button class="btn btn-primary mx-2 mt-2 col-md-3"
         [routerLink]="['/new']">{{'new-reservation.create-new-reservation'
         | translate}}
     </button>
-    <button class="btn btn-primary mx-2" [routerLink]="['/list']">
+    <button class="btn btn-primary mx-2 mt-2 col-md-3" [routerLink]="['/list']">
         {{'new-reservation.view-all' | translate}}
     </button>
 </div>

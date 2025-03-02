@@ -3,8 +3,8 @@
 
     <h3 class="mt-5 mb-3">{{'new-reservation.list'|translate}}</h3>
 
-    <div class="row mb-3">
-        <div class="col-3">
+    <div class="row mb-8">
+        <div class="col-md-4">
             <label
                 class="form-label">{{'new-reservation.guest-name'|translate}}</label>
             <input class="form-control" type="text"
@@ -13,7 +13,7 @@
                 placeholder="{{'new-reservation.filter'|translate}}">
 
         </div>
-        <div class="col-3">
+        <div class="col-md-4">
             <label
                 class="form-label">{{'new-reservation.room-number'|translate}}</label>
             <input class="form-control" type="text"
@@ -23,58 +23,64 @@
         </div>
     </div>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th class="sortable desc"
-                    (click)="sort('guestName')">{{'new-reservation.guest-name'|translate}}
-                    <i *ngIf="sortedColumn === 'guestName'" class="bi"
-                        [ngClass]="sortDirection ? 'bi-caret-up' : 'bi-caret-down'"></i>
-                </th>
-                <th
-                    (click)="sort('guestEmail')">{{'new-reservation.guest-email'|translate}}
-                    <i *ngIf="sortedColumn === 'guestEmail'" class="bi"
-                        [ngClass]="sortDirection ? 'bi-caret-up' : 'bi-caret-down'"></i></th>
-                <th
-                    (click)="sort('roomNumber')">{{'new-reservation.room-number'|translate}}
-                    <i *ngIf="sortedColumn === 'roomNumber'" class="bi"
-                        [ngClass]="sortDirection ? 'bi-caret-up' : 'bi-caret-down'"></i></th>
-                <th
-                    (click)="sort('checkInDate')">{{'new-reservation.checkin-date'|translate}}
-                    <i *ngIf="sortedColumn === 'checkInDate'" class="bi"
-                        [ngClass]="sortDirection ? 'bi-caret-up' : 'bi-caret-down'"></i></th>
-                <th
-                    (click)="sort('checkOutDate')">{{'new-reservation.checkout-date'|translate}}
-                    <i *ngIf="sortedColumn === 'checkOutDate'" class="bi"
-                        [ngClass]="sortDirection ? 'bi-caret-up' : 'bi-caret-down'"></i></th>
-                <th>{{'new-reservation.actions'|translate}}</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let reservation of filterReservations">
-                <td>{{reservation.guestName}}</td>
-                <td>{{reservation.guestEmail}}</td>
-                <td>{{reservation.roomNumber}}</td>
-                <td>{{reservation.checkInDate}}</td>
-                <td>{{reservation.checkOutDate}}</td>
-                <td>
-                    <button class="btn btn-sm btn-danger mx-1"
-                        (click)="deleteReservation(reservation.id)">{{'new-reservation.delete'
-                        | translate}}
-                    </button>
-                    <button class="btn btn-sm btn-secondary mx-1"
-                        [routerLink]="['/edit',reservation.id]"
-                        routerLinkActive="router-link-active">{{'new-reservation.edit'
-                        | translate}}
-                    </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col" class="text-nowrap"
+                        (click)="sort('guestName')">{{'new-reservation.guest-name'|translate}}
+                        <i *ngIf="sortedColumn === 'guestName'"
+                            class="bi"
+                            [ngClass]="sortDirection ? 'bi-caret-up' : 'bi-caret-down'"></i>
+                    </th>
+                    <th scope="col" class="text-nowrap"
+                        (click)="sort('guestEmail')">{{'new-reservation.guest-email'|translate}}
+                        <i *ngIf="sortedColumn === 'guestEmail'"
+                            class="bi"
+                            [ngClass]="sortDirection ? 'bi-caret-up' : 'bi-caret-down'"></i></th>
+                    <th scope="col" class="text-nowrap"
+                        (click)="sort('roomNumber')">{{'new-reservation.room-number'|translate}}
+                        <i *ngIf="sortedColumn === 'roomNumber'"
+                            class="bi"
+                            [ngClass]="sortDirection ? 'bi-caret-up' : 'bi-caret-down'"></i></th>
+                    <th scope="col" class="text-nowrap"
+                        (click)="sort('checkInDate')">{{'new-reservation.checkin-date'|translate}}
+                        <i *ngIf="sortedColumn === 'checkInDate'"
+                            class="bi"
+                            [ngClass]="sortDirection ? 'bi-caret-up' : 'bi-caret-down'"></i></th>
+                    <th scope="col" class="text-nowrap"
+                        (click)="sort('checkOutDate')">{{'new-reservation.checkout-date'|translate}}
+                        <i *ngIf="sortedColumn === 'checkOutDate'"
+                            class="bi"
+                            [ngClass]="sortDirection ? 'bi-caret-up' : 'bi-caret-down'"></i></th>
+                    <th scope="col" class="text-nowrap">
+                        {{'new-reservation.actions'|translate}}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let reservation of filterReservations">
+                    <td>{{reservation.guestName}}</td>
+                    <td>{{reservation.guestEmail}}</td>
+                    <td>{{reservation.roomNumber}}</td>
+                    <td>{{reservation.checkInDate}}</td>
+                    <td>{{reservation.checkOutDate}}</td>
+                    <td class="d-flex justify-content-start">
+                        <button class="btn btn-sm btn-danger mx-1"
+                            (click)="deleteReservation(reservation.id)">{{'new-reservation.delete'
+                            | translate}}
+                        </button>
+                        <button class="btn btn-sm btn-secondary mx-1"
+                            [routerLink]="['/edit',reservation.id]"
+                            routerLinkActive="router-link-active">{{'new-reservation.edit'
+                            | translate}}
+                        </button>
+                    </td>
+                </tr>
 
-    <ul *ngIf="reservations.length; else noReservations">
-
-    </ul>
+            </tbody>
+        </table>
+    </div>
 
     <ng-template #noReservations>
         <p>{{'new-reservation.no-reservations-available' |
