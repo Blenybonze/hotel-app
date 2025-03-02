@@ -12,10 +12,6 @@ export class AppComponent {
   constructor(private translate: TranslateService) {
     // Set default language
     translate.setDefaultLang('en');
-
-    // Use stored or browser language if available
-    const browserLang = translate.getBrowserLang() || 'en';
-    translate.use(browserLang);
   }
 
   changeLanguage(lang: string) {

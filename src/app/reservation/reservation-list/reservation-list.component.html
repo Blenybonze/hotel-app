@@ -26,11 +26,27 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>{{'new-reservation.guest-name'|translate}}</th>
-                <th>{{'new-reservation.guest-email'|translate}}</th>
-                <th>{{'new-reservation.room-number'|translate}}</th>
-                <th>{{'new-reservation.checkin-date'|translate}}</th>
-                <th>{{'new-reservation.checkout-date'|translate}}</th>
+                <th class="sortable desc"
+                    (click)="sort('guestName')">{{'new-reservation.guest-name'|translate}}
+                    <i *ngIf="sortedColumn === 'guestName'" class="bi"
+                        [ngClass]="sortDirection ? 'bi-caret-up' : 'bi-caret-down'"></i>
+                </th>
+                <th
+                    (click)="sort('guestEmail')">{{'new-reservation.guest-email'|translate}}
+                    <i *ngIf="sortedColumn === 'guestEmail'" class="bi"
+                        [ngClass]="sortDirection ? 'bi-caret-up' : 'bi-caret-down'"></i></th>
+                <th
+                    (click)="sort('roomNumber')">{{'new-reservation.room-number'|translate}}
+                    <i *ngIf="sortedColumn === 'roomNumber'" class="bi"
+                        [ngClass]="sortDirection ? 'bi-caret-up' : 'bi-caret-down'"></i></th>
+                <th
+                    (click)="sort('checkInDate')">{{'new-reservation.checkin-date'|translate}}
+                    <i *ngIf="sortedColumn === 'checkInDate'" class="bi"
+                        [ngClass]="sortDirection ? 'bi-caret-up' : 'bi-caret-down'"></i></th>
+                <th
+                    (click)="sort('checkOutDate')">{{'new-reservation.checkout-date'|translate}}
+                    <i *ngIf="sortedColumn === 'checkOutDate'" class="bi"
+                        [ngClass]="sortDirection ? 'bi-caret-up' : 'bi-caret-down'"></i></th>
                 <th>{{'new-reservation.actions'|translate}}</th>
             </tr>
         </thead>
