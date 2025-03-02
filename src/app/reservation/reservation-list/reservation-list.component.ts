@@ -31,13 +31,14 @@ export class ReservationListComponent implements OnInit {
 
   ngOnInit(): void {
     this.reservations = this.reservationService.getReservations();
-    this.filterReservations = this.reservations;
+    this.filterReservations = [...this.reservations];
 
     this.sort('guestName');
   }
 
   deleteReservation(id: string) {
     this.reservationService.deleteReservation(id);
+    this.filterReservations = [...this.reservations];
   }
 
   goToCreate() {
